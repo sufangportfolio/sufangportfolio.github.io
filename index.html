@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Su Fang CV</title>
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Glegoo' rel='stylesheet' type='text/css'>
+    
+</head>
+
+
+  <body>
+
+    <header class="site-header container">
+
+  <div class="wrapper">
+
+    <img src="images/miss-su.png" alt="" id="site-img">
+    <h1><a class="site-title" href="index.html">Miss Su's Teaching Portfolio</a></h1>
+
+    <nav id="main-nav" class="site-nav">
+        <div class="tabbable">
+            <ul class="nav nav-tabs nav-pills" id="myTab">
+
+                <li class="active">
+                    <a href="about-me/index.html">About Me</a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Curriculum<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="curriculum/literacy.html">English</a>
+                        </li>
+                        <li>
+                            <a href="curriculum/numeracy.html">Maths</a>
+                        </li>
+                        <li>
+                            <a href="curriculum/science.html">STEAM and Investigation</a>
+                        </li>
+                        <li>
+                            <a href="curriculum/inquiry.html">Inquiry</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Teaching Strategies<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="teaching-strategies/eal.html">EAL</a>
+                        </li>
+                        <li>
+                            <a href="teaching-strategies/ict-tools.html">ICT Tools</a>
+                        </li>
+                        <li>
+                            <a href="teaching-strategies/deep-thinking.html">Deep Thinking</a>
+                        </li>
+                        <li>
+                            <a href="teaching-strategies/differentiation.html">Differentiation</a>
+                        </li>
+                        <li>
+                            <a href="teaching-strategies/special-needs.html">Special Needs</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Assesments<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="assesments/assesment-learning.html">Assessment for, of and as learning</a>
+                        </li>
+                        <li>
+                            <a href="assesments/diagnostic.html">Diagnostic, Ongoing formative and summative assessment</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="classroom-management/index.html">Classroom Management</a>
+                </li>
+
+                <li>
+                    <a href="collaboration-and-communication/index.html">Collaboration and Communication</a>
+                </li>
+
+                <li>
+                    <a href="professional-development/index.html">Professional Development</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div id="main-content" class="page-content container">
+        <div class="content-container active">
+            <h2>Teaching Philosophy</h2>
+
+<p class="my-lead">“The pursuit of normality is an ultimate sacrifice of potential”. – Faith Jegede</p>
+
+<p>As an educator I seek to provide students with engaging and interesting learning opportunities across all key learning areas. My classroom style is complex and multi-faceted. I seek to maintain a collaborative classroom which understands that each student is an individual. In this collaborative environment I present students with opportunities to learn in multiple contexts towards becoming individual learners. I believe in an active co-learning classroom whereby the teacher guides and facilitate. I create this relationship by providing an engaging and student-centred approach with an emphasis on students readiness to learn. I believe learning is continuous and progressive, with this understanding I provide differentiation in the classroom.  I seek to create a classroom that is both flexible and consistent, allowing for the learning styles of all students. This philosophy seeks for each student to achieve, develop and grow in their own right as a learner.</p>
+
+<!--<h2><a href="uploads/Su-Fang-resume.pdf">My resume</a></h2>-->
+
+<h2>Areas of special interests</h2>
+
+<ul>
+    <li>Avid Traveller</li>
+    <li>Published Journalist</li>
+    <li>Musician of Various Instruments</li>
+    <li>Multiple Language Speaker (Mandarin, English, Italian, French) </li>
+    <li>Volunteer </li>
+</ul>
+
+<img src="uploads/img/about-me/img-1.jpg" alt="" />
+        </div>
+        <div class="content-container empty" style="display:none"></div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-dropdown.js"></script>
+<script type="text/javascript">
+    var $mainNav = $('#main-nav');
+    var $mainContent = $("#main-content");
+    $('#main-nav').find('a').click(function(e){
+        var $this = $(this);
+        var targetHref = $this.attr('href');
+        // if(targetHref === 'index.html'){ return; }
+        e.preventDefault();
+        if(targetHref === '#'){ return; }
+        $mainContent.children('.content-container.empty').load(document.URL.replace('index.html','')+targetHref,function(){
+            $mainContent.children('.content-container.active')
+                .slideUp(600)
+                .removeClass('active').addClass('empty');
+            $(this)
+                .slideDown(600)
+                .removeClass('empty').addClass('active');
+        });
+        $('#main-nav').find('li.active').removeClass('active');
+        $this.parent('li').addClass('active');
+    });
+</script>
+
+  </body>
+
+</html>

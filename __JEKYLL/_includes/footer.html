@@ -1,0 +1,23 @@
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-dropdown.js"></script>
+<script type="text/javascript">
+    var $mainNav = $('#main-nav');
+    var $mainContent = $("#main-content");
+    $('#main-nav').find('a').click(function(e){
+        var $this = $(this);
+        var targetHref = $this.attr('href');
+        // if(targetHref === 'index.html'){ return; }
+        e.preventDefault();
+        if(targetHref === '#'){ return; }
+        $mainContent.children('.content-container.empty').load(document.URL.replace('index.html','')+targetHref,function(){
+            $mainContent.children('.content-container.active')
+                .slideUp(600)
+                .removeClass('active').addClass('empty');
+            $(this)
+                .slideDown(600)
+                .removeClass('empty').addClass('active');
+        });
+        $('#main-nav').find('li.active').removeClass('active');
+        $this.parent('li').addClass('active');
+    });
+</script>
